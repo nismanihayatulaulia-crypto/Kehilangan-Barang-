@@ -1,12 +1,109 @@
+:root {
+  --navy: #1e3a5f;
+  --navy-dark: #172e4d;
+  --bg: #f3f4f8;
+  --card: #ffffff;
+  --border: #d9dde6;
+  --text: #1f2937;
+  --muted: #6b7280;
+  --placeholder: #9aa1ad;
+  --foto: #dde1ea;
+  --green: #2e7d4f;
+  --red: #c9302c;
+}
 * { box-sizing: border-box; }
-body { margin: 0; font-family: system-ui, Arial, sans-serif; background: #f5f6f8; color: #222; }
-.navbar { display: flex; justify-content: space-between; align-items: center; padding: 12px 24px; background: #1f3a5f; }
-.navbar a { color: #fff; text-decoration: none; margin-left: 16px; }
-.navbar .brand { font-weight: 700; margin-left: 0; }
-.container { max-width: 1000px; margin: 24px auto; padding: 0 16px; min-height: 70vh; }
-.footer { text-align: center; padding: 16px; color: #666; font-size: 14px; }
-.card { background: #fff; border-radius: 8px; padding: 16px; box-shadow: 0 1px 3px rgba(0,0,0,.1); }
-.badge { padding: 2px 10px; border-radius: 12px; color: #fff; font-size: 13px; }
-.badge.hilang { background: #d64545; }
-.badge.ditemukan { background: #2e9e5b; }
-.badge.dikembalikan { background: #2f6fd6; }
+body { margin: 0; font-family: Inter, "Segoe UI", Arial, sans-serif; font-size: 14px; background: var(--bg); color: var(--text); }
+a { color: inherit; }
+
+/* ===== Navbar ===== */
+.navbar { display: flex; justify-content: space-between; align-items: center; height: 52px; padding: 0 24px; background: var(--navy); color: #fff; }
+.navbar .brand { font-weight: 700; font-size: 15px; color: #fff; text-decoration: none; }
+.navbar .menu { display: flex; align-items: center; gap: 18px; }
+.navbar .menu a { color: #fff; text-decoration: none; font-size: 12px; }
+.navbar .menu .user { font-size: 12px; }
+.btn-outline-light { border: 1px solid #fff; border-radius: 5px; padding: 5px 14px; }
+
+/* ===== Layout ===== */
+.container { max-width: 1040px; margin: 0 auto; padding: 24px 24px 40px; min-height: 70vh; }
+.footer { text-align: center; padding: 16px; color: var(--muted); font-size: 12px; }
+h1 { font-size: 20px; margin: 0 0 4px; }
+.subtitle { color: var(--muted); font-size: 12px; margin: 0 0 18px; }
+.card { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 18px; }
+
+/* ===== Form ===== */
+.form-group { margin-bottom: 14px; }
+.form-group label { display: block; font-size: 12px; font-weight: 700; margin-bottom: 5px; }
+input[type=text], input[type=email], input[type=password], input[type=date], input[type=number], select, textarea {
+  width: 100%; padding: 9px 11px; border: 1px solid var(--border); border-radius: 6px; background: #fff; font: inherit; font-size: 13px; color: var(--text);
+}
+input::placeholder, textarea::placeholder { color: var(--placeholder); }
+textarea { min-height: 70px; resize: vertical; }
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0 24px; }
+.form-grid .full { grid-column: 1 / -1; }
+.upload-box { border: 1px dashed #b8bfcc; border-radius: 6px; padding: 28px; text-align: center; color: var(--muted); font-size: 12px; }
+
+/* ===== Tombol ===== */
+.btn { display: inline-block; border: 0; border-radius: 5px; padding: 9px 16px; font: inherit; font-size: 12px; font-weight: 700; cursor: pointer; text-decoration: none; text-align: center; }
+.btn-primary { background: var(--navy); color: #fff; }
+.btn-primary:hover { background: var(--navy-dark); }
+.btn-secondary { background: #e5e8ef; color: var(--text); }
+.btn-green { background: var(--green); color: #fff; }
+.btn-red { background: var(--red); color: #fff; }
+.btn-block { display: block; width: 100%; }
+.btn-sm { padding: 4px 10px; font-size: 11px; }
+
+/* ===== Kartu autentikasi (login / registrasi) ===== */
+.auth-wrap { display: flex; justify-content: center; padding-top: 28px; }
+.auth-card { width: 100%; max-width: 380px; padding: 22px 20px; }
+.auth-card h1 { text-align: center; font-size: 18px; }
+.auth-card .subtitle { text-align: center; }
+.auth-card .btn-block { margin-top: 18px; padding: 10px; }
+.auth-foot { text-align: center; font-size: 12px; color: var(--muted); margin-top: 14px; }
+.auth-foot a { text-decoration: underline; color: var(--text); }
+
+/* ===== Notifikasi ===== */
+.alert { padding: 9px 12px; border-radius: 6px; font-size: 12px; margin-bottom: 14px; }
+.alert-error { background: #fde8e8; color: #a12622; border: 1px solid #f5c2c0; }
+.alert-success { background: #dff5e6; color: #1e6b3d; border: 1px solid #b6e3c5; }
+
+/* ===== Lencana status ===== */
+.badge { display: inline-block; padding: 2px 9px; border-radius: 10px; font-size: 10px; font-weight: 700; }
+.badge-hilang { background: #fde8e8; color: #c0392b; }
+.badge-ditemukan { background: #dff5e6; color: #1e7e3e; }
+.badge-dikembalikan { background: #dce8fb; color: #2a5db0; }
+.badge-verified { background: #fdf3c8; color: #8a6d00; }
+
+/* ===== Daftar Barang ===== */
+.filter-bar { display: grid; grid-template-columns: 2.2fr 1fr 1fr 1fr auto; gap: 14px; align-items: end; margin-bottom: 20px; }
+.filter-bar label { display: block; font-size: 12px; font-weight: 700; margin-bottom: 5px; }
+.item-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+.item-card { background: #fff; border-radius: 8px; overflow: hidden; border: 1px solid var(--border); text-decoration: none; display: block; }
+.item-card .foto { height: 104px; background: var(--foto); display: flex; align-items: center; justify-content: center; color: var(--muted); font-size: 11px; }
+.item-card .foto img { width: 100%; height: 100%; object-fit: cover; }
+.item-card .body { padding: 9px 10px 11px; }
+.item-card .nama { font-weight: 700; font-size: 13px; margin: 6px 0 2px; }
+.item-card .meta { font-size: 11px; color: var(--muted); line-height: 1.5; }
+.kosong { text-align: center; color: var(--muted); padding: 40px 0; }
+
+/* ===== Pagination ===== */
+.pagination { display: flex; justify-content: center; gap: 6px; margin-top: 22px; }
+.pagination a, .pagination span { min-width: 26px; padding: 4px 8px; text-align: center; border: 1px solid var(--border); border-radius: 4px; background: #fff; font-size: 11px; text-decoration: none; }
+.pagination .aktif { background: var(--navy); color: #fff; border-color: var(--navy); }
+
+/* ===== Tabel (Laporan Saya, Panel Admin) ===== */
+.table { width: 100%; border-collapse: collapse; background: #fff; font-size: 12px; }
+.table th { background: #eef0f5; text-align: left; padding: 9px 10px; border: 1px solid var(--border); }
+.table td { padding: 9px 10px; border: 1px solid var(--border); }
+
+/* ===== Panel Admin ===== */
+.admin-layout { display: flex; min-height: 70vh; }
+.sidebar { width: 160px; background: var(--navy); padding: 18px 0; }
+.sidebar a { display: block; padding: 8px 18px; color: #fff; font-size: 12px; text-decoration: none; }
+.sidebar a.aktif { font-weight: 700; background: rgba(255,255,255,.08); }
+.admin-main { flex: 1; padding: 22px; }
+
+@media (max-width: 800px) {
+  .item-grid { grid-template-columns: repeat(2, 1fr); }
+  .filter-bar, .form-grid { grid-template-columns: 1fr; }
+  .navbar { height: auto; flex-direction: column; gap: 8px; padding: 10px; }
+}
